@@ -1,0 +1,31 @@
+{
+  "name": "api",
+  "description": "package_description",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.1",
+    "@types/uuid": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "esm-hook": "^0.1.4",
+    "express": "^4.21.1",
+    "express-sse-ts": "^1.0.2",
+    "haskellian": "^0.0.14",
+    "isbinaryfile": "^5.0.4",
+    "simple-git": "^3.27.0",
+    "uuid": "^11.0.3"
+  },
+  "scripts": {
+    "dev": "ts-node -r esm-hook/register src/index.ts",
+    "build": "tsc -p tsconfig.json",
+    "prod": "node -r esm-hook/register dist/index.js"
+  }
+}
