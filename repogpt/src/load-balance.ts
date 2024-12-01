@@ -14,14 +14,14 @@ export function loadBalance(sizes: number[], batches: number): number[][] {
   }
 
   // Prefix sum for quick range sum calculations
-  const prefixSum = Array(n + 1).fill(0);
+  const prefixSum = new Array(n + 1).fill(0);
   for (let i = 0; i < n; i++) {
     prefixSum[i + 1] = prefixSum[i] + sizes[i];
   }
 
   // DP table and backtracking pointer
-  const dp = Array.from({ length: batches + 1 }, () => Array(n + 1).fill(Infinity));
-  const split = Array.from({ length: batches + 1 }, () => Array(n + 1).fill(0));
+  const dp = Array.from({ length: batches + 1 }, () => new Array(n + 1).fill(Infinity));
+  const split = Array.from({ length: batches + 1 }, () => new Array(n + 1).fill(0));
 
   // Base case: One batch, all sizes in one group
   for (let i = 1; i <= n; i++) {

@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
     /* Visit https://aka.ms/tsconfig to read more about this file */
+
     "target": "es2018",
-    "module": "commonjs",
+    "jsx": "react",
+
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    "declaration": true,
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
     "strict": true,
     "noImplicitAny": false,
-    "skipLibCheck": true,
-    "outDir": "./dist",
+    "skipLibCheck": true
   },
-
-  "include": [
-    "src/**/*.ts"
-  ],
+  "include": ["./src"]
 }

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "RepoGPT",
+  "description": "Create a custom GPT using repo files from a URL.",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": ["https://chatgpt.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "service_worker": "assets/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["assets/content.js"]
+    }
+  ]
+}

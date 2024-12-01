@@ -1,3 +1,3 @@
-# Api
+# Repogpt
 
 > package_description
