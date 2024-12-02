@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  import { page } from "$app/stores";
   import { summarizeZip, type Branch } from "repogpt/repo";
   import { download } from "./concat";
   import Result from "./Result.svelte";

@@ -12,7 +12,7 @@
   function start(repoUrl: string, chunks: number) {
     try {
       const { owner, repo, branch = 'main' } = parseUrl(repoUrl);
-      goto(`/concat?chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
+      goto(`/concat#chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
     }
     catch {}
   }

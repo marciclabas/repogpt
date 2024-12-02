@@ -15,6 +15,7 @@
       });
     });
   });
+
 </script>
 
 {@render children()}

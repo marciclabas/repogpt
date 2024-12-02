@@ -72,7 +72,7 @@
 </style>
 
 <div class="copy-container">
-  <button class="icon-button" on:click={copyToClipboard} aria-label="Copy to Clipboard">
+  <button class="icon-button" onclick={copyToClipboard} aria-label="Copy to Clipboard">
     <Clipboard />
   </button>
   <div class="popover {popover ? 'visible' : ''}">Copied!</div>

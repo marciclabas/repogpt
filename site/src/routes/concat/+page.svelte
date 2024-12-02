@@ -1,15 +1,12 @@
 <script lang="ts">
-    import { goto } from '$app/navigation';
   import { page } from '$app/stores'
-    import Concat, { type Settings } from './Concat.svelte';
-  const params = $page.url.searchParams
+  import Concat from './Concat.svelte';
+  const params = new URLSearchParams($page.url.hash.slice(1))
   const repo = params.get('repo') ?? ''
   const owner = params.get('owner') ?? ''
   const branch = params.get('branch') ?? ''
-  const chunks = parseInt(params.get('chunks') ?? '')
-
-  if (!repo || !owner || !branch || isNaN(chunks))
-    goto('..');
+  const rawChunks = parseInt(params.get('chunks') ?? '')
+  const chunks = isNaN(rawChunks) ? 1 : rawChunks
 
 </script>
 
