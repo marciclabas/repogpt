@@ -1,9 +1,9 @@
 <script lang="ts" module>
-  import { page } from "$app/stores";
+  import { base } from "$app/paths";
   import { summarizeZip, type Branch } from "repogpt/repo";
   import { download } from "./concat";
   import Result from "./Result.svelte";
-    import { downloadZip } from "../../lib/donwload-zip";
+  import { downloadZip } from "$lib/donwload-zip";
 
   export type Settings = Branch & { chunks: number };
   
@@ -100,8 +100,8 @@
 <div class="container">
   <!-- Logs Section -->
   <div class="logs">
-    <a class="header" href="..">
-      <img src="icon.png" alt="repogpt icon" />
+    <a class="header" href={base}>
+      <img src={`${base}/icon.png`} alt="repogpt icon" />
       <h2>RepoGPT</h2>
     </a>
     <div class="form">

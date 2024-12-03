@@ -35,30 +35,3 @@ extra PACKAGE:
   cd {{PKG}} && \
   yarn add --peer {{PACKAGE}} && yarn add --dev {{PACKAGE}}
   
-
-# Install react stuff
-install-react:
-  cd {{PKG}} && \
-  yarn add --dev eslint-plugin-react-hooks
-  cd {{PKG}} && \
-  yarn add react react-dom --dev @types/react @types/react-dom
-
-install-ramda:
-  cd {{PKG}} && \
-  yarn add ramda --dev @types/ramda
-
-# Convert *.js to *.ts imports
-denify:
-  #!/bin/bash
-  for file in $(find {{PKG}}/src -type f); do
-    sed -i -E 's/(.js)(["\'])/.ts\2/g' $file #'
-  done
-  mv .deno.json deno.json || touch deno.json
-
-# Convert *.js to *.js imports
-nodify:
-  #!/bin/bash
-  for file in $(find {{PKG}}/src -type f); do
-    sed -i -E "s/(.ts)([\"'])/.js\2/g" $file #'
-  done
-  mv deno.json .deno.json || :

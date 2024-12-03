@@ -1,4 +1,4 @@
-import { managedAsync } from 'haskellian/asyn_iter'
+import { managedAsync } from 'haskellian/asyn_iter/managed.js'
 
 export type DownloadProgress<T = any> = {
   tag: 'progress'

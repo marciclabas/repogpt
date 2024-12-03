@@ -11,10 +11,10 @@
 		"strict": true,
 		"moduleResolution": "bundler",
 
-		"paths": {
-			"repogpt/*": ["../repogpt/src/*"],
-      "repogpt": ["../repogpt/src/index.js"],
-		}
+		// "paths": {
+			// "repogpt/*": ["../repogpt/src/*"],
+      // "repogpt": ["../repogpt/src/index.js"],
+		// }
 	}
 	// Path aliases are handled by https://svelte.dev/docs/kit/configuration#alias
 	// except $lib which is handled by https://svelte.dev/docs/kit/configuration#files

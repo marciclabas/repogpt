@@ -1,6 +1,7 @@
 <script lang='ts'>
   import Landing from './Landing.svelte';
   import { goto } from '$app/navigation';
+  import { base } from '$app/paths';
   import type { Branch } from 'repogpt/repo';
 
   function parseUrl(repoUrl: string): Branch {
@@ -11,7 +12,7 @@
   function start(repoUrl: string, chunks: number) {
     try {
       const { owner, repo, branch = 'main' } = parseUrl(repoUrl);
-      goto(`concat#chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
+      goto(`${base}/concat#chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
     }
     catch {}
   }

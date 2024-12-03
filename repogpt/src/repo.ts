@@ -1,4 +1,4 @@
-import { type JSZipObject, loadAsync } from 'jszip'
+import jszip from 'jszip'
 import { loadBalance } from './load-balance.js'
 
 export type Branch = {
@@ -11,7 +11,7 @@ export function zipUrl({ owner, repo, branch = 'main' }: Branch): string {
   return `https://codeload.github.com/${owner}/${repo}/zip/refs/heads/${branch}`
 }
 
-function size(file: JSZipObject) {
+function size(file: jszip.JSZipObject) {
   return file['_data'].uncompressedSize ?? 0
 }
 
@@ -19,7 +19,7 @@ function removePrefix(s: string, prefix: string) {
   return s.startsWith(prefix) ? s.slice(prefix.length) : s
 }
 
-function fixPath(file: JSZipObject, { repo, branch = 'main' }: Branch) {
+function fixPath(file: jszip.JSZipObject, { repo, branch = 'main' }: Branch) {
   const prefix = `${repo}-${branch}/`
   file.name = removePrefix(file.name, prefix)
   return file
@@ -27,7 +27,7 @@ function fixPath(file: JSZipObject, { repo, branch = 'main' }: Branch) {
 
 const hr = '='.repeat(80)
 
-async function concat(files: JSZipObject[]) {
+async function concat(files: jszip.JSZipObject[]) {
   let out = ''
   for (const [i, file] of files.entries()) {
     const content = await file.async('text')
@@ -51,7 +51,7 @@ export const IGNORED_EXTENSIONS = [
 ]
 
 export async function* summarizeZip(buffer: ArrayBuffer, { batches, ignoredExtensions = IGNORED_EXTENSIONS, ...branch }: Params): AsyncIterable<string> {
-  const data = (await loadAsync(buffer)).files as Record<string, JSZipObject>
+  const data = (await jszip.loadAsync(buffer)).files as Record<string, jszip.JSZipObject>
   const files = Object.values(data)
     .filter(file => !file.dir)
     .filter(file => !ignoredExtensions.some(ext => file.name.endsWith(ext)))

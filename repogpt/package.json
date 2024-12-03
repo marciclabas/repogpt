@@ -1,11 +1,10 @@
 {
   "name": "repogpt",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "package_description",
   "type": "module",
-  "module": "dist/index.js",
-  "main": "dist/index.js",
-  
+  "module": "index.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx tsc -p tsconfig.json"
   },

@@ -6,16 +6,16 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			pages: 'build',
+      assets: 'build',
+			fallback: 'build/index.html'
+		}),
 		paths: {
-			// base: '/repogpt'
-		},
-		alias: {
-			"repogpt/*": "../repogpt/src/*",
-      "repogpt": "../repogpt/src/index.js",
+			base: '/repogpt'
 		},
 		prerender: {
-			handleHttpError: 'warn',
+			// handleHttpError: 'warn',
 		}
 	},
 };
