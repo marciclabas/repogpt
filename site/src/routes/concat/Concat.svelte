@@ -101,13 +101,13 @@
   <!-- Logs Section -->
   <div class="logs">
     <a class="header" href="..">
-      <img src="/icon.png" alt="repogpt icon" />
+      <img src="icon.png" alt="repogpt icon" />
       <h2>RepoGPT</h2>
     </a>
     <div class="form">
       <h3>Settings</h3>
       <div class="form-group">
-        <label>Owner / Repo / Branch:</label>
+        <p>Owner / Repo / Branch:</p>
         <div class="input-group">
           <input type="text" id="owner" placeholder="Owner" bind:value={owner} />
           <span class="separator">/</span>
@@ -221,7 +221,7 @@
     margin-bottom: 1rem;
   }
 
-  .form-group label {
+  .form-group p {
     margin-bottom: 5px;
     font-size: 0.9rem;
     color: #555;

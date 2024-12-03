@@ -1,8 +1,7 @@
 <script lang='ts'>
   import Landing from './Landing.svelte';
   import { goto } from '$app/navigation';
-    import type { Branch } from 'repogpt/repo';
-
+  import type { Branch } from 'repogpt/repo';
 
   function parseUrl(repoUrl: string): Branch {
     const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
@@ -12,7 +11,7 @@
   function start(repoUrl: string, chunks: number) {
     try {
       const { owner, repo, branch = 'main' } = parseUrl(repoUrl);
-      goto(`/concat#chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
+      goto(`concat#chunks=${chunks}&owner=${owner}&repo=${repo}&branch=${branch}`);
     }
     catch {}
   }
