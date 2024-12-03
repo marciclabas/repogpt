@@ -7,9 +7,7 @@
 
   export type Settings = Branch & { chunks: number };
   
-  export type Props = Settings & {
-    autostart?: boolean
-  }
+  export type Props = Settings
 
   function repoName(branch: Branch) {
     return `${branch.owner}/${branch.repo}/${branch.branch}`
@@ -18,7 +16,7 @@
 
 <script lang="ts">
 
-  const { chunks: startChunks, autostart = true, ...startBranch }: Props = $props()
+  const { chunks: startChunks, ...startBranch }: Props = $props()
 
   let owner = $state(startBranch.owner)
   let repo = $state(startBranch.repo)
@@ -84,8 +82,16 @@
     }
   }
 
+  const disabled = $derived(!owner || !repo || !branch)
+
+  function onRun() {
+    if (!disabled)
+      run({ owner, repo, branch }, chunks)
+  }
+
+
   $effect.root(() => {
-    if (autostart) {
+    if (!disabled) {
       run({ owner, repo, branch }, chunks);
     }
   });
@@ -100,7 +106,7 @@
 <div class="container">
   <!-- Logs Section -->
   <div class="logs">
-    <a class="header" href={base}>
+    <a class="header" href={`${base}/`}>
       <img src={`${base}/icon.png`} alt="repogpt icon" />
       <h2>RepoGPT</h2>
     </a>
@@ -120,7 +126,7 @@
         <label for="chunks">Chunks:</label>
         <input type="number" id="chunks" placeholder="Chunks" bind:value={chunks} />
       </div>
-      <button onclick={() => run({ owner, repo, branch }, chunks)}>Restart</button>
+      <button {disabled} onclick={onRun}>Run</button>
     </div>
 
     <h3>Logs</h3>
@@ -287,6 +293,12 @@
 
   .form button:hover {
     background-color: #005bb5;
+  }
+
+  .form button:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
   }
 
   /* Results Section */

@@ -3,11 +3,10 @@
   import './index.css'
   import { onNavigate } from '$app/navigation'
   
-  const { children } = $props()
-
+  
   onNavigate((navigation) => {
     if (!document.startViewTransition) return;
-
+    
     return new Promise((resolve) => {
       document.startViewTransition(async () => {
         resolve();
@@ -15,7 +14,8 @@
       });
     });
   });
-
+  
+  const { children } = $props()
 </script>
 
 {@render children()}

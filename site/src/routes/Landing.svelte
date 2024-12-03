@@ -1,6 +1,13 @@
 <script lang='ts' module>
+  import type { Branch } from 'repogpt';
+
   export type Props = {
-    start(url: string, chunks: number): void
+    start(chunks: number, branch?: Branch): void
+  }
+
+  function parseUrl(repoUrl: string): Branch {
+    const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
+    return { owner, repo }
   }
   
 </script>
@@ -8,50 +15,59 @@
 <script lang='ts'>
   let repoUrl = $state('')
   let chunks = $state(1)
+  let branch = $state('main')
 
   const { start }: Props = $props()
 
-  function onClick() {
+  function onStart() {
     if (repoUrl)
-      start(repoUrl, chunks)
+      start(chunks, { ...parseUrl(repoUrl), branch })
+  }
+
+  function onSetManually() {
+    start(chunks)
   }
 
 </script>
 
-<div class="landing-container">
+<main>
   <h1>RepoGPT</h1>
   <p>Transform GitHub repositories into GPT-ready files in seconds. Free, fast, and secure—all in your browser!</p>
 
-  <div class="feature-box">
+  <div class='feature-box'>
     <input
-      type="text"
-      placeholder="Enter GitHub Repository URL: https://github.com/USERNAME/REPO"
+      type='text' class='repo-url'
+      placeholder='Enter GitHub Repository URL: https://github.com/USERNAME/REPO'
       bind:value={repoUrl}
     />
 
-    <div class="control-group">
-      <label for="chunks">Number of Chunks:</label>
-      <input id="chunks" type="number" min="1" bind:value={chunks} />
+    <div class='settings'>
+      <div class='hbox'>
+        <label for='chunks'>Number of Chunks:</label>
+        <input id='chunks' type='number' min='1' bind:value={chunks} />
+      </div>
+      <div class='hbox'>
+        <label for='branch'>Branch:</label>
+        <input id='branch' type='text' bind:value={branch} />
+      </div>
     </div>
-
-    <button disabled={!repoUrl} onclick={onClick}>Concatenate Files</button>
+      
+    <div class='hbox'>
+      <button class='primary' disabled={!repoUrl} onclick={onStart}>Concatenate Files</button>
+      <span>or</span>
+      <button class='outline' onclick={onSetManually}>Set Manually</button>
+    </div>
   </div>
 
-  <div class="footer">
+  <div class='footer'>
     <p>Your data never leaves the browser.</p>
   </div>
-</div>
+</main>
 
 
 <style>
-  :global(body) {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    background-color: #f9f9f9;
-  }
 
-  .landing-container {
+  main {
     max-width: 1000px;
     margin: 0 auto;
     padding: 40px 20px;
@@ -60,24 +76,21 @@
 
   h1 {
     font-size: 2.5rem;
-    color: #333;
     margin-bottom: 10px;
   }
 
   p {
     font-size: 1.2rem;
-    color: #555;
     margin-bottom: 30px;
   }
 
   .feature-box {
-    background: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  input[type='text'] {
+  .repo-url {
     width: 100%;
     max-width: 600px;
     padding: 12px;
@@ -87,19 +100,22 @@
     margin-bottom: 20px;
   }
 
-  .control-group {
+  .settings {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    gap: 10px;
+    gap: 3rem;
   }
 
-  .control-group label {
-    font-size: 1rem;
+  .hbox {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
   }
 
-  input[type='number'] {
+  .settings input {
     width: 60px;
     padding: 8px;
     font-size: 1rem;
@@ -111,23 +127,37 @@
   button {
     padding: 12px 20px;
     font-size: 1rem;
-    color: #fff;
-    background-color: #0078d7;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
-
-  button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+  
+  button.primary {
+    color: #fff;
+    background-color: #0078d7;
   }
 
-  button:hover {
+  button.outline {
+    color: #0078d7;
+    background-color: #fff;
+    border: 1px solid #0078d7;
+  }
+
+  button.primary:hover {
     background-color: #005bb5;
   }
 
+  button.outline:hover {
+    background-color: #f0f0f0;
+  }
+  
+  button.primary:disabled {
+    cursor: not-allowed;
+    background-color: #ddd;
+    color: #999;
+  }
+  
   .footer {
     margin-top: 40px;
     font-size: 0.9rem;

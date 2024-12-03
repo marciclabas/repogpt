@@ -9,14 +9,12 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
       assets: 'build',
-			fallback: 'build/index.html'
+			// fallback: 'build/index.html'
 		}),
 		paths: {
-			base: '/repogpt'
+			base: '/repogpt',
 		},
-		prerender: {
-			// handleHttpError: 'warn',
-		}
+		appDir: 'app_'
 	},
 };
 
