@@ -5,27 +5,36 @@
 		<link rel="icon" href="./icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		
-		<link href="./app_/immutable/assets/0.4gn8rOl6.css" rel="stylesheet">
-		<link href="./app_/immutable/assets/2.BuHRjbtJ.css" rel="stylesheet">
-		<link rel="modulepreload" href="./app_/immutable/entry/start.hyQ4SUWh.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/entry.DRpPYTea.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/index-client.CbWOD79m.js">
-		<link rel="modulepreload" href="./app_/immutable/entry/app.C9ZB0bpZ.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/store.F61YA9pl.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/utils.C2s_CC8S.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/disclose-version.BFzxGX5O.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/props.NQHmwi4B.js">
-		<link rel="modulepreload" href="./app_/immutable/nodes/0.CDAScejJ.js">
-		<link rel="modulepreload" href="./app_/immutable/nodes/2.TKKUCBlr.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/legacy.CeienYN-.js">
-		<link rel="modulepreload" href="./app_/immutable/chunks/input.CmDCvGWv.js">
+		<link href="./app_/immutable/assets/0.Da3tqA95.css" rel="stylesheet">
+		<link href="./app_/immutable/assets/2.B3819N5f.css" rel="stylesheet">
+		<link rel="modulepreload" href="./app_/immutable/entry/start.CMikEW5u.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/entry.DQfSawg8.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/index-client.Vc-Y-DH2.js">
+		<link rel="modulepreload" href="./app_/immutable/entry/app.D289mloo.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/store.bHTy0Ufx.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/utils.DhlmevCW.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/disclose-version.C4EyfbzX.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/props.Tyyxcaoa.js">
+		<link rel="modulepreload" href="./app_/immutable/nodes/0.BUAQ55v0.js">
+		<link rel="modulepreload" href="./app_/immutable/nodes/2.BW_DvKhc.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/legacy.CEESYMRH.js">
+		<link rel="modulepreload" href="./app_/immutable/chunks/input.CA80-lGy.js">
 	</head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-YREMSDZDRT"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-YREMSDZDRT');
+	</script>
 	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents"><!--[--><!--[--><!----><!----><div class="landing-container svelte-hrrm9o"><h1 class="svelte-hrrm9o">RepoGPT</h1> <p class="svelte-hrrm9o">Transform GitHub repositories into GPT-ready files in seconds. Free, fast, and secure—all in your browser!</p> <div class="feature-box svelte-hrrm9o"><input type="text" placeholder="Enter GitHub Repository URL: https://github.com/USERNAME/REPO" value="" class="svelte-hrrm9o"> <div class="control-group svelte-hrrm9o"><label for="chunks" class="svelte-hrrm9o">Number of Chunks:</label> <input id="chunks" type="number" min="1" value="1" class="svelte-hrrm9o"></div> <button disabled class="svelte-hrrm9o">Concatenate Files</button></div> <div class="footer svelte-hrrm9o"><p class="svelte-hrrm9o">Your data never leaves the browser.</p></div></div><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
+		<div style="display: contents"><!--[--><!--[--><!----><!----><main class="svelte-kh9879"><h1 class="svelte-kh9879">RepoGPT</h1> <p class="svelte-kh9879">Transform GitHub repositories into GPT-ready files in seconds. Free, fast, and secure—all in your browser!</p> <div class="feature-box svelte-kh9879"><input type="text" class="repo-url svelte-kh9879" placeholder="Enter GitHub Repository URL: https://github.com/USERNAME/REPO" value=""> <div class="settings svelte-kh9879"><div class="hbox svelte-kh9879"><label for="chunks">Number of Chunks:</label> <input id="chunks" type="number" min="1" value="1" class="svelte-kh9879"></div> <div class="hbox svelte-kh9879"><label for="branch">Branch:</label> <input id="branch" type="text" value="main" class="svelte-kh9879"></div></div> <div class="hbox svelte-kh9879"><button class="primary svelte-kh9879" disabled>Concatenate Files</button> <span>or</span> <button class="outline svelte-kh9879">Set Manually</button></div></div> <div class="footer svelte-kh9879"><p class="svelte-kh9879">Your data never leaves the browser.</p></div></main><!----><!----><!----><!--]--> <!--[!--><!--]--><!--]-->
 			
 			<script>
 				{
-					__sveltekit_crbzw2 = {
+					__sveltekit_s685ef = {
 						base: new URL(".", location).pathname.slice(0, -1),
 						assets: "/repogpt"
 					};
@@ -35,8 +44,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("./app_/immutable/entry/start.hyQ4SUWh.js"),
-						import("./app_/immutable/entry/app.C9ZB0bpZ.js")
+						import("./app_/immutable/entry/start.CMikEW5u.js"),
+						import("./app_/immutable/entry/app.D289mloo.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 2],
