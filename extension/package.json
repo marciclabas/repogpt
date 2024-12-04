@@ -7,6 +7,7 @@
     "build": "vite build",
     "watch": "vite build --watch",
     "preview": "vite preview",
+    "zip": "zip -r extension.zip dist/*",
     "check": "svelte-check --tsconfig ./tsconfig.json && tsc -p tsconfig.node.json"
   },
   "devDependencies": {

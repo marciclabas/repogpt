@@ -3,8 +3,7 @@
   "name": "RepoGPT",
   "description": "Create a custom GPT using repo files from a URL.",
   "version": "1.0",
-  "permissions": ["activeTab", "scripting", "storage", "tabs"],
-  "host_permissions": ["https://chatgpt.com/*"],
+  "permissions": ["activeTab"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
