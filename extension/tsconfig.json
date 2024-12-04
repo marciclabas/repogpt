@@ -17,8 +17,9 @@
     "moduleDetection": "force",
 
     "paths": {
-      "repogpt/*": ["../repogpt/src/*"],
-      "repogpt": ["../repogpt/src/index.js"],
+      "$lib/*": ["./src/lib/*"],
+      // "repogpt/*": ["../repogpt/src/*"],
+      // "repogpt": ["../repogpt/src/index.js"],
     }
   },
   "include": ["src/**/*.ts", "src/**/*.js", "src/**/*.svelte"],
