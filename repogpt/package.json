@@ -2,11 +2,11 @@
   "name": "repogpt",
   "version": "1.0.4",
   "description": "package_description",
-  "type": "module",
   "module": "index.js",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc -p tsconfig.json"
+    "build": "npx tsc -p tsconfig.json",
+    "dev": "node --loader ts-node/esm"
   },
   "repository": {
     "type": "git",
@@ -15,11 +15,14 @@
   "author": "Marcel Claramunt",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
     "@typescript-eslint/parser": "^7.0.2",
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "esm-hook": "^0.1.4",
+    "ts-node": "^10.9.2",
     "typescript": ""
   },
   "dependencies": {

@@ -1,4 +1,4 @@
-
+/// <reference types="chrome-types" />
 
 export async function runScript<Args extends any[]>(script: (...args: Args) => void, args: Args, tab?: chrome.tabs.Tab) {
   tab = tab ?? await activeTab()

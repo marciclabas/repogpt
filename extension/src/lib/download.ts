@@ -18,7 +18,7 @@ export async function* download(branch: Branch): AsyncIterable<DownloadProgress>
 
 
   const url = zipUrl(branch)
-  const proxiedUrl = 'https://corsproxy.io/?' + encodeURIComponent(url)
+  const proxiedUrl = 'https://corsproxy.io/?url=' + encodeURIComponent(url)
 
   console.debug('Downloading', url)
 

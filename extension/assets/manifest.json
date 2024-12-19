@@ -2,8 +2,9 @@
   "manifest_version": 3,
   "name": "RepoGPT",
   "description": "Create a custom GPT using repo files from a URL.",
-  "version": "1.0",
-  "permissions": ["activeTab"],
+  "version": "1.1",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["https://chatgpt.com/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
