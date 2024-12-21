@@ -3,6 +3,8 @@
   import { goto } from '$app/navigation';
   import { base } from '$app/paths';
   import type { Branch } from 'repogpt/repo';
+    import ExtensionBanner from './ExtensionBanner.svelte';
+    import Footer from './Footer.svelte';
 
   function start(chunks: number, branch?: Branch) {
     const hash = branch
