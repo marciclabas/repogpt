@@ -4,7 +4,7 @@
 
 ### Chrome Extension
 
-![Promo video of repogpt](media/repogpt-promo.mp4)
+[![Promo video of repogpt]([media/repogpt-promo.mp4](https://img.youtube.com/vi/iXJTIILJNyk/maxresdefault.jpg))](https://www.youtube.com/watch?v=iXJTIILJNyk)
 
 ## Site: Concatenate Repos
 
